@@ -52,7 +52,7 @@ input UpdateCategoryInput {
 type Mutation {
   createProduct(input: CreateProductInput! @spread): Product @create
   updateProduct(input: UpdateProductInput! @spread): Product @update
-  deleteProduct(id: ID!): Product @delete
+  deleteProduct(id: ID! @whereKey): Product @delete   # <── FIX
 
   createCategory(input: CreateCategoryInput! @spread): Category @create
   updateCategory(input: UpdateCategoryInput! @spread): Category @update
