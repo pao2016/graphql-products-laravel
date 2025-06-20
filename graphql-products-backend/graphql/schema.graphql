@@ -5,16 +5,16 @@ type Product {
   description: String
   price: Float!
   category: Category! @belongsTo
-  created_at: DateTime
-  updated_at: DateTime
+  created_at: String
+  updated_at: String
 }
 
 type Category {
   id: ID!
   name: String!
   products: [Product!]! @hasMany
-  created_at: DateTime
-  updated_at: DateTime
+  created_at: String
+  updated_at: String
 }
 
 # ========== QUERIES ==========
@@ -50,13 +50,10 @@ input UpdateCategoryInput {
 
 # ========== MUTATIONS ==========
 type Mutation {
-  createProduct(input: CreateProductInput!): Product @create
-  updateProduct(input: UpdateProductInput!): Product @update
+  createProduct(input: CreateProductInput! @spread): Product @create
+  updateProduct(input: UpdateProductInput! @spread): Product @update
   deleteProduct(id: ID!): Product @delete
 
-  createCategory(input: CreateCategoryInput!): Category @create
-  updateCategory(input: UpdateCategoryInput!): Category @update
+  createCategory(input: CreateCategoryInput! @spread): Category @create
+  updateCategory(input: UpdateCategoryInput! @spread): Category @update
 }
-
-# ========== SCALARS ==========
-scalar DateTime

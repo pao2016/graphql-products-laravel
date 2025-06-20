@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 return [
     /*
@@ -196,7 +198,9 @@ return [
         'directives' => 'App\\GraphQL\\Directives',
         'validators' => 'App\\GraphQL\\Validators',
     ],
-
+    'scalars' => [
+        'DateTime' => \Nuwave\Lighthouse\Schema\Types\Scalars\DateTime::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Security
